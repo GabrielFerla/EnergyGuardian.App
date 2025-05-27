@@ -1,0 +1,14 @@
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\bin\Debug\net8.0\EnergyGuardian.App.exe
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\bin\Debug\net8.0\EnergyGuardian.App.deps.json
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\bin\Debug\net8.0\EnergyGuardian.App.runtimeconfig.json
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\bin\Debug\net8.0\EnergyGuardian.App.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\bin\Debug\net8.0\EnergyGuardian.App.pdb
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.AssemblyInfoInputs.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.AssemblyInfo.cs
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\refint\EnergyGuardian.App.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.pdb
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.genruntimeconfig.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\ref\EnergyGuardian.App.dll
