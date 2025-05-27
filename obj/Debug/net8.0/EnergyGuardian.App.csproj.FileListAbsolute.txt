@@ -12,3 +12,4 @@ C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.
 C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.pdb
 C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.genruntimeconfig.cache
 C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\ref\EnergyGuardian.App.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\gsC\EnergyGuardian.App\obj\Debug\net8.0\EnergyGuardian.App.sourcelink.json
