@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnergyGuardian.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0905fb1d11b080f4d6610d4ab7114c20ee1e7e0f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec4f4cb09121e4342d5e8dc25413742bb1233ed4")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnergyGuardian.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnergyGuardian.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

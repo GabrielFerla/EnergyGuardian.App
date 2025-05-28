@@ -267,7 +267,7 @@ namespace EnergyGuardian
             
             Console.WriteLine("\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
-        }static void AcionarPlanoEmergencia()
+        }        static void AcionarPlanoEmergencia()
         {
             Console.Clear();
             Console.WriteLine("=== GERENCIAR PLANO DE EMERGÊNCIA ===");
@@ -292,25 +292,40 @@ namespace EnergyGuardian
             if (int.TryParse(Console.ReadLine(), out int indice) && indice > 0 && indice <= setoresCadastrados.Count)
             {
                 var setor = setoresCadastrados[indice - 1];
-                
-                Console.WriteLine("\nO que deseja fazer?");
-                Console.WriteLine("1 - Acionar Plano de Emergência");
-                Console.WriteLine("2 - Desativar Plano de Emergência");
-                Console.Write("Opção: ");
-                
-                string opcao = Console.ReadLine() ?? "1";
-                
-                if (opcao == "1")
+                  // Verifica o status atual e mostra apenas a opção válida
+                if (setor.PlanoEmergenciaAtivado)
                 {
-                    setor.AcionarPlanoEmergencia();
-                }
-                else if (opcao == "2")
-                {
-                    setor.DesativarPlanoEmergencia();
+                    Console.WriteLine("\nO plano de emergência está ativo.");
+                    Console.WriteLine("1 - Desativar Plano de Emergência");
+                    Console.Write("Opção: ");
+                    
+                    string opcao = Console.ReadLine() ?? "";
+                    
+                    if (opcao == "1")
+                    {
+                        setor.DesativarPlanoEmergencia();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Opção inválida.");
+                    Console.WriteLine("\nO plano de emergência está desativado.");
+                    Console.WriteLine("1 - Acionar Plano de Emergência");
+                    Console.Write("Opção: ");
+                    
+                    string opcao = Console.ReadLine() ?? "";
+                    
+                    if (opcao == "1")
+                    {
+                        setor.AcionarPlanoEmergencia();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida.");
+                    }
                 }
             }
             else
