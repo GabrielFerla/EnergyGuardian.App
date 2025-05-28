@@ -1,5 +1,18 @@
 # Energy Guardian - Sistema de Monitoramento de Energia
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)
+
+## Sumário
+- [Visão Geral](#visão-geral)
+- [Funcionalidades Principais](#funcionalidades-principais)
+- [Tipos de Setores](#tipos-de-setores)
+- [Como Usar o Sistema](#como-usar-o-sistema)
+- [Status dos Planos de Emergência](#status-dos-planos-de-emergência)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Requisitos do Sistema](#requisitos-do-sistema)
+- [Desenvolvimento e Contribuição](#desenvolvimento-e-contribuição)
+
 ## Visão Geral
 
 Energy Guardian é um sistema de gerenciamento e monitoramento de falhas de energia em diversos setores de uma organização. O sistema permite cadastrar diferentes tipos de setores (normais e críticos), registrar falhas de energia, acionar planos de emergência e gerar relatórios para análise.
@@ -102,17 +115,58 @@ Os planos de emergência podem estar em dois estados:
 3. Setores críticos possuem mensagens específicas durante o acionamento do plano de emergência, destacando o tipo de risco envolvido
 4. A interface do sistema sempre mostra apenas as opções válidas com base no estado atual dos setores
 
+## Estrutura do Projeto
+
+O projeto está organizado nas seguintes pastas:
+
+- **Models/**: Contém as classes de modelo do sistema
+  - `Infraestrutura.cs`: Classe base para todos os setores
+  - `SetorCritico.cs`: Classe especializada para setores com riscos especiais
+  - `FalhaEnergia.cs`: Representação de uma ocorrência de falha de energia
+
+- **Services/**: Serviços utilizados pelo sistema
+  - `Logger.cs`: Sistema de registro de eventos
+  - `RelatorioService.cs`: Geração de relatórios
+
+- **Program.cs**: Ponto de entrada do programa e interface com o usuário
+
 ## Requisitos do Sistema
 
 - .NET 8.0 ou superior
 - Console compatível com caracteres Unicode para exibição adequada das mensagens
 
-## Execução do Sistema
+## Desenvolvimento e Contribuição
+
+### Ambiente de Desenvolvimento
+
+Para desenvolver neste projeto, você precisará:
+
+1. Visual Studio 2022 ou VS Code com extensões C#
+2. SDK .NET 8.0 ou superior
+
+### Controle de Versão
+
+Este projeto utiliza Git para controle de versão. Um arquivo `.gitignore` está incluído para evitar o commit de arquivos desnecessários como:
+- Arquivos de configuração do Visual Studio (`.vs/`)
+- Arquivos temporários e de cache
+
+
+### Compilando o Projeto
+
+Para compilar sem executar:
+
+```powershell
+dotnet build
+```
+
+
+### Executando o Projeto
 
 Para executar o sistema, abra um terminal no diretório do projeto e execute:
 
-```
+```powershell
 dotnet run
 ```
 
----
+
+
