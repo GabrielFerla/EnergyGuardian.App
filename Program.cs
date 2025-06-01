@@ -4,16 +4,26 @@ using EnergyGuardian.Models;
 using EnergyGuardian.Services;
 
 namespace EnergyGuardian
-{
-    class Program
+{    class Program
     {
         static List<Infraestrutura> setoresCadastrados = new List<Infraestrutura>();
         static List<FalhaEnergia> falhasRegistradas = new List<FalhaEnergia>();
         
-        static void Main(string[] args)
+        // Credenciais padrão do sistema
+        private const string USUARIO_PADRAO = "admin";
+        private const string SENHA_PADRAO = "admin";
+        private const int MAX_TENTATIVAS_LOGIN = 3;
+          static void Main(string[] args)
         {
             try
             {
+                // Sistema de autenticação
+                if (!AutenticarUsuario())
+                {
+                    Console.WriteLine("Acesso negado. Encerrando o sistema...");
+                    return;
+                }
+
                 bool continuar = true;
 
                   while (continuar)
@@ -54,13 +64,158 @@ namespace EnergyGuardian
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao executar o sistema: " + ex.Message);
-            }
+                Console.WriteLine("Erro ao executar o sistema: " + ex.Message);            }
             finally
             {
                 Console.WriteLine("Execução finalizada.");
             }
-        }        /// <summary>
+        }
+
+        /// <summary>
+        /// Autentica o usuário no sistema com login e senha
+        /// </summary>
+        /// <returns>True se a autenticação for bem-sucedida, False caso contrário</returns>
+        static bool AutenticarUsuario()
+        {
+            int tentativas = 0;
+            
+            while (tentativas < MAX_TENTATIVAS_LOGIN)
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("=== ENERGY GUARDIAN - SISTEMA DE AUTENTICAÇÃO ===");
+                    Console.WriteLine($"Tentativa {tentativas + 1} de {MAX_TENTATIVAS_LOGIN}");
+                    Console.WriteLine();
+                    
+                    string usuario = ObterUsuarioValido();
+                    string senha = ObterSenhaValida();
+                    
+                    if (ValidarCredenciais(usuario, senha))
+                    {
+                        Console.WriteLine("✓ Login realizado com sucesso!");
+                        Console.WriteLine("Pressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        return true;
+                    }
+                    else
+                    {
+                        tentativas++;
+                        if (tentativas < MAX_TENTATIVAS_LOGIN)
+                        {
+                            Console.WriteLine("✗ Credenciais inválidas! Tente novamente.");
+                            Console.WriteLine("Pressione qualquer tecla para continuar...");
+                            Console.ReadKey();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro durante a autenticação: {ex.Message}");
+                    tentativas++;
+                }
+            }
+            
+            Console.WriteLine("✗ Número máximo de tentativas excedido!");
+            return false;
+        }
+
+        /// <summary>
+        /// Obtém o nome de usuário com validação
+        /// </summary>
+        /// <returns>Nome de usuário válido</returns>
+        static string ObterUsuarioValido()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Usuário: ");
+                    string usuario = Console.ReadLine()?.Trim() ?? "";
+                    
+                    if (string.IsNullOrWhiteSpace(usuario))
+                    {
+                        throw new ArgumentException("O nome de usuário não pode ser vazio.");
+                    }
+                    
+                    return usuario;
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"Erro: {ex.Message}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Obtém a senha com validação (sem exibir caracteres na tela)
+        /// </summary>
+        /// <returns>Senha válida</returns>
+        static string ObterSenhaValida()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Senha: ");
+                    string senha = LerSenhaOculta();
+                    
+                    if (string.IsNullOrWhiteSpace(senha))
+                    {
+                        Console.WriteLine();
+                        throw new ArgumentException("A senha não pode ser vazia.");
+                    }
+                    
+                    Console.WriteLine();
+                    return senha;
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"Erro: {ex.Message}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Lê a senha do usuário sem exibir os caracteres na tela
+        /// </summary>
+        /// <returns>Senha digitada pelo usuário</returns>
+        static string LerSenhaOculta()
+        {
+            string senha = "";
+            ConsoleKeyInfo tecla;
+            
+            do
+            {
+                tecla = Console.ReadKey(true);
+                
+                if (tecla.Key != ConsoleKey.Backspace && tecla.Key != ConsoleKey.Enter)
+                {
+                    senha += tecla.KeyChar;
+                    Console.Write("*");
+                }
+                else if (tecla.Key == ConsoleKey.Backspace && senha.Length > 0)
+                {
+                    senha = senha.Substring(0, senha.Length - 1);
+                    Console.Write("\b \b");
+                }
+            }
+            while (tecla.Key != ConsoleKey.Enter);
+            
+            return senha;
+        }
+
+        /// <summary>
+        /// Valida as credenciais fornecidas pelo usuário
+        /// </summary>
+        /// <param name="usuario">Nome de usuário</param>
+        /// <param name="senha">Senha</param>
+        /// <returns>True se as credenciais são válidas, False caso contrário</returns>
+        static bool ValidarCredenciais(string usuario, string senha)
+        {
+            return usuario.Equals(USUARIO_PADRAO, StringComparison.OrdinalIgnoreCase) && 
+                   senha.Equals(SENHA_PADRAO);
+        }/// <summary>
         /// Exibe o menu principal do sistema com todas as opções disponíveis
         /// </summary>
         static void ExibirMenu()

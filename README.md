@@ -5,6 +5,7 @@
 
 ## Sumário
 - [Visão Geral](#visão-geral)
+- [Sistema de Autenticação](#sistema-de-autenticação)
 - [Funcionalidades Principais](#funcionalidades-principais)
 - [Tipos de Setores](#tipos-de-setores)
 - [Como Usar o Sistema](#como-usar-o-sistema)
@@ -16,6 +17,43 @@
 ## Visão Geral
 
 Energy Guardian é um sistema de gerenciamento e monitoramento de falhas de energia em diversos setores de uma organização. O sistema permite cadastrar diferentes tipos de setores (normais e críticos), registrar falhas de energia, acionar planos de emergência e gerar relatórios para análise.
+
+## Sistema de Autenticação
+
+O Energy Guardian possui um sistema de autenticação para garantir acesso seguro ao sistema de monitoramento.
+
+### Credenciais Padrão
+
+- **Usuário**: `admin`
+- **Senha**: `admin`
+
+### Características do Sistema de Login
+
+- **Máximo de tentativas**: 3 tentativas de login
+- **Senha oculta**: A senha é digitada sem exibir os caracteres na tela (substituídos por asteriscos)
+- **Validação**: O sistema valida se os campos não estão vazios
+- **Segurança**: Após 3 tentativas inválidas, o sistema nega o acesso e é encerrado
+
+### Como Fazer Login
+
+1. Ao iniciar o sistema, você verá a tela de autenticação:
+   ```
+   === ENERGY GUARDIAN - SISTEMA DE AUTENTICAÇÃO ===
+   Tentativa 1 de 3
+   
+   Usuário: 
+   Senha: 
+   ```
+
+2. Digite o usuário padrão: `admin`
+3. Digite a senha padrão: `admin` (os caracteres aparecerão como asteriscos)
+4. Pressione Enter para confirmar
+
+### Mensagens do Sistema
+
+- **Login bem-sucedido**: `✓ Login realizado com sucesso!`
+- **Credenciais inválidas**: `✗ Credenciais inválidas! Tente novamente.`
+- **Tentativas esgotadas**: `✗ Número máximo de tentativas excedido!`
 
 ## Funcionalidades Principais
 
