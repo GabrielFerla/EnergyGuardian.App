@@ -1,7 +1,10 @@
 # Energy Guardian - Sistema de Monitoramento de Energia
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)
+## Integrantes do Projeto
+
+- **RM 550695** - Gabriel Ferla
+- **RM 97158** - Lucas Moreno Matheus  
+- **RM 99389** - Victor Flávio Demarchi Viana
 
 ## Sumário
 - [Visão Geral](#visão-geral)
